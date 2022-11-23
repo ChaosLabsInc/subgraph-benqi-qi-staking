@@ -1,0 +1,56 @@
+# useful queries to copy-paste and run in the subgraph explorer
+
+{
+    stakedEvents(first: 5) {
+        id
+        blockNumber
+        timestamp
+        user
+    }
+    unstakedEvents(first: 5) {
+        id
+        blockNumber
+        timestamp
+        user
+    }
+    accounts(first:1) {
+        id
+        user
+        balance
+    }
+    accountBalances(first:1) {
+        id
+        timestamp
+        user
+        balance
+    }
+}
+
+
+# Query for 5 accounts
+{
+    accounts(first: 5) {
+        id
+        user
+        balance
+    }
+}
+
+# This is a pretty active account: 0x0bccd4a3bb6325daf4a32d0243a2f693bcc6fb61
+{
+    accountBalances(where: {user: "0x0bccd4a3bb6325daf4a32d0243a2f693bcc6fb61"}) {
+        id
+        timestamp
+        user
+        balance
+    }
+}
+
+# all veQi transactions
+{
+    accountBalances (where:{user:"0x7ee65fdc1c534a6b4f9ea2cc3ca9ac8d6c602abd"})
+    {
+        timestamp
+        balance
+    }
+}
